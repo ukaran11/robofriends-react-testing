@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+
 import { setSearchField, requestRobots } from '../actions';
 
 import CardList from '../components/CardList';
@@ -37,7 +37,6 @@ class App extends Component {
   }
 
   render() {
-    // test
     const { robots, searchField, onSearchChange, isPending } = this.props;
     const filteredRobots = robots.filter(robot => {
       return robot.name.toLowerCase().includes(searchField.toLowerCase());
