@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-import { setSearchField, requestRobots } from '../actions';
 
 import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
@@ -8,30 +7,11 @@ import Scroll from '../components/Scroll';
 import ErrorBoundry from '../components/ErrorBoundry';
 import Header from '../components/Header';
 
-import './App.css';
+import './MainPage.css';
 
-const mapStateToProps = (state) => {
-  return {
-    searchField: state.searchRobots.searchField,
-    robots: state.requestRobots.robots,
-    isPending: state.requestRobots.isPending
-  }
-}
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onSearchChange: (event) => dispatch(setSearchField(event.target.value)),
-    onRequestRobots: () => requestRobots(dispatch)
-  }
-}
-
-class App extends Component {
-  constructor() {
-    super()
-    this.state = {
-      count: 1
-    }
-  }
+class MainPage extends Component {
+  
   componentDidMount() {
     this.props.onRequestRobots();
   }
@@ -43,7 +23,7 @@ class App extends Component {
     })
     return (
       <div className='tc'>
-        <Header count={this.state.count}/>
+        <Header/>
         <SearchBox searchChange={onSearchChange}/>
         <Scroll>
           { isPending ? <h1>Loading</h1> :
@@ -57,4 +37,4 @@ class App extends Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default MainPage;
