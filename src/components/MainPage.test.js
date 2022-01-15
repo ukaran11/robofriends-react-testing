@@ -11,6 +11,6 @@ beforeEach(() => {
     }
 });
 
-test('expect to render App Component', () => {
+test('renders MainPage without crashing', () => {
     expect(shallow(<App />)).toMatchSnapshot();
 })
