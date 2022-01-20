@@ -8,7 +8,7 @@ import {
 const initialStateSearch = {
   searchField: ''
 } 
-
+// test
 export const searchRobots = (state=initialStateSearch, action={}) => {
   switch (action.type) {
     case CHANGE_SEARCHFIELD:
